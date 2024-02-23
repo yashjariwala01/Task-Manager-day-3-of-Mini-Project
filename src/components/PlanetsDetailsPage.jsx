@@ -1,8 +1,8 @@
-
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
 import Navbar from './NavBar';
+import Accordion from './Accordion';
 
 const PlanetsDetailsPage = () => {
     const planetDetails = useSelector((state)=> state.planetDetails);
@@ -78,7 +78,7 @@ const PlanetsDetailsPage = () => {
             </div>
           </div>
         )}
-        <div className="w-full bg-gray-800 p-8 rounded-lg"> {/* Increase width of every other container */}
+        <div className="w-full bg-gray-800 p-8 rounded-lg"> 
           <h3 className="text-xl font-bold mb-2">Films:</h3>
           {films.length > 0 ? (
             <div>
@@ -115,29 +115,4 @@ const PlanetsDetailsPage = () => {
   );
 };
 
-const Accordion = ({ title, children }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleAccordion = () => {
-    setIsOpen(!isOpen);
-  };
-
-  return (
-    <div className="mb-4">
-      <div
-        className="bg-gray-700 px-4 py-2 cursor-pointer flex justify-between items-center"
-        onClick={toggleAccordion}
-      >
-        <h4 className="text-lg font-semibold">{title}</h4>
-        <span className="text-white">{isOpen ? '-' : '+'}</span>
-      </div>
-      {isOpen && (
-        <div className="bg-gray-800 px-4 py-2">
-          {children}
-        </div>
-      )}
-    </div>
-  );
-};
-
-export default PlanetsDetailsPage;
+export default PlanetsDetailsPage

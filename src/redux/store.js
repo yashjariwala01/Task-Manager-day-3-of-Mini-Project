@@ -5,7 +5,6 @@ import { thunk } from 'redux-thunk';
 import { combineReducers } from 'redux';
 import coursesReducer from './Reducers/courseReducer';
 import detailsReducer from './Reducers/detailsReducer';
-// import purchaseCourse from './Reducers/purchaseReducer';
 
 
 const persistConfig = {
@@ -22,5 +21,5 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = createStore(persistedReducer,applyMiddleware(thunk))
 
-// export default store;
+
 export const persistor = persistStore(store);
